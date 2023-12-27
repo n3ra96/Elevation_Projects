@@ -7,36 +7,90 @@
     <title>Recipes List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/flag-icon-css/2.8.0/css/flag-icon.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+    <div id="heading">Welcome</div>
     <div id="new-recipe">
         <input type="text" id="new-recipe-input" placeholder="recipe" />
-        <button onclick=showrecipe()>Search</button>
+        <button onclick="showrecipe()" id="new-recipe-button">Search</button>
+        <button onclick="showFavourite()" id="favourite-button">Favourites</button><br>
+        <form>
+            <input type="checkbox" id="gluten" name="ingredient" value="Gluten">
+            <label for="gluten">Gluten</label><br>
+            <input type="checkbox" id="dairy" name="ingredient" value="Dairy">
+            <label for="dairy">Dairy</label><br>
+        </form>
     </div>
 
     <div id="recipes"></div>
 
     <script id="recipes-template" type="text/x-handlebars-template">
         {{#each recipes}}
-            <div class="recipe"  >
+            <div class="recipe" id="{{idMeal}}" >
+                <img src={{thumbnail}} class="recipe-img" ><br>
+                <i class="fa fa-toggle-off" aria-hidden="true"></i>
                 <p class="name">{{title}} </p>
-                <img src={{thumbnail}} id="{{idMeal}}" >
+                <span class="category-label-text">{{area}}</span> 
+                <i class="flag-icon flag-icon-{{countryCode}}"></i>
+                <p>{{Category}}</p>
+                {{#stars starNumber}}
+                
+                {{/stars}}
+                <p class="chef">Chef: {{chefName}} </p>
                 <ul class="ingredients">
                     {{#each ingredients}}
                     <li>{{this}}</li>
                     {{/each}}
                 </ul>
-                <!-- {{#unless visited}}
-                    <p class=visit>Visit</p>
-                {{/unless}} -->
+                <button type="button" class="btn btn-warning" id="toggle-btn">instructions</button>
+                <div id="toggle-example" class="collapse in">
+                <p class="content">{{instruction}}</p>
+                </div>
+                <a href="{{href}}" target="_blank" rel="noopener noreferrer"><button>Check out VIDEO.</button></a>
+                <a href="mailto:?subject=Check%20out%20this%20recipe!%20{{title}}&body=You%20can%20see%20the%20recipe%20in%20this%20video%20%3A%20{{href}}"><button>Share via email</button></a>   
             </div>
         {{/each}}
     </script>
 
+    <script id="recipes-template-fav" type="text/x-handlebars-template">
+        {{#each recipes}}
+            <div class="recipe" id="{{idMeal}}" >
+                <img src={{thumbnail}} class="recipe-img" ><br>
+                <i class="fa fa-toggle-on" aria-hidden="true"></i>
+                <p class="name">{{title}} </p>
+                <span class="category-label-text">{{area}}</span> 
+                <i class="flag-icon flag-icon-{{countryCode}}"></i>
+                <p>{{Category}}</p>
+                {{#stars starNumber}}
+                
+                {{/stars}}
+                <p class="chef">Chef: {{chefName}} </p>
+                <ul class="ingredients">
+                    {{#each ingredients}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                <button type="button" class="btn btn-warning" id="toggle-btn">instructions</button>
+                <div id="toggle-example" class="collapse in">
+                <p class="content">{{instruction}}</p>
+                </div>
+                <a href="{{href}}" target="_blank" rel="noopener noreferrer"><button>Check out VIDEO.</button></a>
+                <a href="mailto:?subject=Check%20out%20this%20recipe!%20{{title}}&body=You%20can%20see%20the%20recipe%20in%20this%20video%20%3A%20{{href}}"><button>Share via email</button></a>
+            </div>
+        {{/each}}
+    </script>
+
+    <!-- <script src="./bootstrap/dist/js/bootstrap.js"></script> -->
     <script src="./jquery/dist/jquery.js"></script>
     <script src="./handlebars/dist/handlebars.js"></script>
+
+    <script src="config.js"></script>
+    <script src="view.js"></script>
+    <script src="model.js"></script>
     <script src="main.js"></script>
 </body>
 

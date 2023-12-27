@@ -1,33 +1,69 @@
-const source = $("#recipes-template").html()
-const template = Handlebars.compile(source)
+const model = new RecipeApi()
+const renderer = new Render()
 
-const render = function(recipes){
-    $("#recipes").empty()
-    let newHtml = template({recipes})
-    $("#recipes").append(newHtml)
-}
 
-const fetch = function(){
-    $.get("/recipes", function(response){
-        render(response)
+$("#recipes").on("click", "#toggle-btn", function () {
+    let description = $(this).closest(".recipe").find("#toggle-example").children()
+
+    if (description.hasClass("content")) {
+        description.animate({ height: 'toggle' });
+        description.removeClass("content")
+    } else {
+        description.animate({ height: 'toggle' });
+        description.addClass("content")
+    }
+});
+
+
+
+$("#recipes").on("click", "i", function () {
+    let idmeal = $(this).closest(".recipe").attr("id")
+    // console.log(idmeal)
+    let data = { idNumber: idmeal }
+    // console.log(data)
+    if ($(this).hasClass("fa fa-toggle-off")) {
+        $(this).removeClass("fa fa-toggle-off").addClass("fa fa-toggle-on")
+        model.postFavRecipe(data)
+    } else {
+        $(this).removeClass("fa fa-toggle-on").addClass("fa fa-toggle-off")
+        model.deleteFavRecipe(idmeal)
+    }
+});
+
+const showFavourite = function () {
+    
+    model.getFavRecipe().then(function(response){
+        console.log(response)
+        renderer.renderFav(response)
     })
 }
 
-const showrecipe = function(){
-    let newrecipe = $("#new-recipe-input").val()
-    $.get('/recipes/'+newrecipe, function (response) {
-    console.log("get complete")
-    render(response)
-    })
+const showrecipe = function () {
+    let newrecipe = $(NEW_INPUT).val()
+    let checkboxes = $(CHECKBOX_INPUT);
+    let values = [];
+
+    values.push(newrecipe)
+    checkboxes.each((checkbox) => {
+        values.push($(checkboxes[checkbox]).val());
+    });
+
+    if (values.length == 1) {
+        model.getRecipe(newrecipe).then(function (response) {
+            renderer.render(response)
+        })
+    } else if (values.length > 1) {
+        model.getRecipeQuery(values).then(function (response) {
+            renderer.render(response)
+        })
+    }
 }
 
-$("#recipes").on("click", "img" , function(){
+$("#recipes").on("click", "img", function () {
     let alertIngredient = $(this).closest(".recipe").find("li:first").text()
-    console.log(alertIngredient)
     alert(alertIngredient);
-    
 })
-    
+
 
 // const updateVisited = function (recipe) {
 //     $.ajax({
@@ -48,4 +84,3 @@ $("#recipes").on("click", "img" , function(){
 // })
 
 
-fetch() //load the data on page load
