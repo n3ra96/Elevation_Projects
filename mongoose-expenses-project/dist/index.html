@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <div>Add Expense</div><br>
+        <form>
+            <label for="item">item:</label><br>
+            <input type="text" id="item" name="item"><br>
+            <label for="amount">amount:</label><br>
+            <input type="number" id="amount" name="amount"><br>
+            <label for="date">date:</label><br>
+            <input type="date" id="date" name="date"><br>
+            <label for="group">group:</label><br>
+            <input type="text" id="group" name="group"><br><br>
+            <input type="submit" value="Submit">
+        </form> 
+    </div>
+
+    <div id="result">
+
+
+    </div>
+
+
+
+    <script id="expense-template" type="text/x-handlebars-template">
+
+    </script>
+
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="ExpenseManager.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
