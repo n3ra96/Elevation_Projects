@@ -36,23 +36,26 @@ router.get('/Weathers' , function(req , res){
 })
 
 router.post('/Weathers' , function(req , res){
-
+    
     let savedCity = new City({ 
         "name": req.body.name , 
         "temperature": req.body.temperature, 
         "condition": req.body.condition  ,
         "conditionpic": req.body.conditionpic 
      })
-      
-    City.create(savedCity).then( function (weathers) {
-        res.status(200).end()
-    })
+    
+         City.create(savedCity).then( function (weathers) {
+                res.status(200).end()
+        }).catch(() => {
+            res.send("existed")
+        })     
 })
 
-router.delete('/Weather/:cityname', function (req, res) {
+router.delete('/Weathers/:cityname', function (req, res) {
     let city2delete = req.params.cityname
     const DeletedCity = City.findOneAndDelete({ name: city2delete}).then()
     res.status(200).send("deleted "+DeletedCity)
+    
 })
 
 

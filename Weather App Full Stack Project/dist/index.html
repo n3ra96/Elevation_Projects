@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <title>Document</title>
 </head>
 <body>
     <div id="new-city">
         <input type="text" id="new-city-input" placeholder="city" />
-        <button onclick="" id="new-city-button">Search</button>
+        <button onclick="showcity()" id="new-city-button">Search</button>
+        <button onclick="showSavedCities()" id="saved-cities-button">Saved</button>
     </div>
 
     <div id="cities"></div>
@@ -17,18 +21,37 @@
         
             <div class="city" id="{{name}}" >
                 
-                <p>name: {{name}}</p>
-                <p>temperature: {{temperature}} </p>
-                <p>condition: {{condition}} </p>
-                <p>conditionpic: {{conditionpic}} </p>
+                <i class="fa-solid fa-file-arrow-up"></i>
+                <p class="name">{{this.name}}</p>
+                <p class="conditionpic">{{this.conditionpic}}</p><br>
+                <p class="temperature">{{this.temperature}}</p><br>
+                <img src="https://openweathermap.org/img/wn/{{this.conditionpic}}@2x.png">
+                <p class="condition">{{this.condition}}</p>
                 
                   
             </div>
         
     </script>
 
-    <script src="./jquery/dist/jquery.js"></script>
-    <script src="./handlebars/dist/handlebars.js"></script>
+    <script id="saved-cities-template" type="text/x-handlebars-template">
+        
+        <div class="city" id="{{name}}" >
+            
+            <i class="fa-solid fa-file-arrow-down"></i>
+            <p class="name">{{this.name}}</p><br>
+            <p class="conditionpic">{{this.conditionpic}}</p><br>
+            <p class="temperature">{{this.temperature}}</p><br>
+            <img src="https://openweathermap.org/img/wn/{{this.conditionpic}}@2x.png">
+            <p class="condition">{{this.condition}}</p>
+            
+              
+        </div>
+    
+</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
     
     <script src="view.js"></script>
     <script src="model.js"></script>

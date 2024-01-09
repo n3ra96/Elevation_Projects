@@ -1,21 +1,29 @@
 
 class CityApi{
     getCity(name){
-        return $.get('/Weathers/'+name)
+        return $.get(`/Weathers/${name}`).then()
     }
 
     getAllCities(){
-        return $.get('/Weathers')
+        return $.get(`/Weathers`).then()
     }
     
     postCity(data){
+        
         return $.post('/Weathers', data ,function (response) {
-            console.log("POST complete")
+            console.log(response)
         })
     }
 
-    getCity(name){
-        return $.get('/Weathers/'+name)
+    deleteCity(name){
+        return $.ajax({
+            url: '/Weathers/'+name ,
+            type: 'DELETE',
+            success: function(result) {
+                console.log("DELETE complete")
+            }
+        });
     }
 
 }
+

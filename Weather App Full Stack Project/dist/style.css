@@ -1,0 +1,171 @@
+body{
+    background-color: rgb(26, 161, 219);
+}
+
+#cities{
+    display: grid;
+    grid-gap: 1vmax;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.city{
+    padding: 1vmax;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px black;
+    background-color: rgb(203, 243, 240);
+}
+
+.name{
+    display: inline-block;
+    font-size: x-large;
+    margin-left: 30%;
+
+}
+
+.condition{
+    margin-left: 40%;
+}
+
+img{
+    margin-left: 30%;
+
+}
+
+.temperature{
+    display: inline-block;
+    margin-left: 40%;
+}
+
+.conditionpic{
+    display: none;
+}
+
+.fa-file-arrow-up{
+    display: inline-block;
+    color: rgb(5, 239, 40);
+    font-size: xx-large;
+    cursor: pointer;
+}
+
+.fa-file-arrow-down{
+    display: inline-block;
+    color: rgb(255, 0, 0);
+    font-size: xx-large;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 400px) {
+
+    body{
+        background-color: rgb(103, 26, 219);
+    }
+    
+   
+    
+    .city{
+        padding: 1vmax;
+        border-radius: 4px;
+        box-shadow: 1px 1px 3px black;
+        background-color: rgb(203, 243, 240);
+    }
+    
+    .name{
+        display: inline-block;
+        font-size: x-large;
+        margin-left: 37%;
+    
+    }
+    
+    .condition{
+        margin-left: 42%;
+    }
+    
+    img{
+        margin-left: 37%;
+    
+    }
+    
+    .temperature{
+        display: inline-block;
+        margin-left: 42.5%;
+    }
+    
+    .conditionpic{
+        display: none;
+    }
+    
+    .fa-file-arrow-up{
+        /* display: inline-block; */
+        color: rgb(5, 239, 40);
+        font-size: xx-large;
+        cursor: pointer;
+    }
+    
+    .fa-file-arrow-down{
+        /* display: inline-block; */
+        color: rgb(255, 0, 0);
+        font-size: xx-large;
+        cursor: pointer;
+    }   
+    
+}
+
+@media screen and (min-width: 800px) {
+
+    body{
+        background-color: rgb(219, 26, 116);
+    }
+    
+    #cities{
+        display: grid;
+        grid-gap: 1vmax;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .city{
+        padding: 1vmax;
+        border-radius: 4px;
+        box-shadow: 1px 1px 3px black;
+        background-color: rgb(203, 243, 240);
+    }
+    
+    .name{
+        display: inline-block;
+        font-size: x-large;
+        margin-left: 36%;
+    
+    }
+    
+    .condition{
+        margin-left: 40.5%;
+    }
+    
+    img{
+        margin-left: 37%;
+    
+    }
+    
+    .temperature{
+        display: inline-block;
+        margin-left: 41%;
+    }
+    
+    .conditionpic{
+        display: none;
+    }
+    
+    .fa-file-arrow-up{
+        display: inline-block;
+        color: rgb(5, 239, 40);
+        font-size: xx-large;
+        cursor: pointer;
+    }
+    
+    .fa-file-arrow-down{
+        display: inline-block;
+        color: rgb(255, 0, 0);
+        font-size: xx-large;
+        cursor: pointer;
+    }
+    
+}
