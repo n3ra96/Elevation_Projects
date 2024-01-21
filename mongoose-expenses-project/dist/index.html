@@ -7,6 +7,26 @@
 </head>
 <body>
     <div id="container">
+        
+    </div>
+
+    <div id="result">
+
+
+    </div>
+
+
+
+    <script id="expense-template" type="text/x-handlebars-template">
+        {{each result }}
+            <span><div class="item">item<div>{{this.item}}</div></div></span> 
+            <span><div class="amount">amount<div>{{this.amount}}</span> 
+            <span><div class="group">group<div>{{this.group}}</span> 
+            <span><div class="date">date<div>{{this.date}}</span>
+        {{/each }}
+    </script>
+
+    <script id="expenseAdd-template" type="text/x-handlebars-template">
         <div>Add Expense</div><br>
         <form>
             <label for="item">item:</label><br>
@@ -19,17 +39,6 @@
             <input type="text" id="group" name="group"><br><br>
             <input type="submit" value="Submit">
         </form> 
-    </div>
-
-    <div id="result">
-
-
-    </div>
-
-
-
-    <script id="expense-template" type="text/x-handlebars-template">
-
     </script>
 
     <script src="../node_modules/jquery/dist/jquery.js"></script>
