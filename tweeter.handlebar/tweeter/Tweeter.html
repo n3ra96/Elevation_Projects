@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tweeter</title>
+    <link href="https://fonts.googleapis.com/css?family=Balthazar" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  
+  <body>
+    <div id="container">
+      <h1 id="title">Tweeter</h1>
+      <input type="text" placeholder="What's on your mind?" id="input">
+      <div id="post" >Twit</div>
+      <div id="posts"></div>
+    </div>
+      <script id="apartments-template" type="text/x-handlebars-template">
+        <ul>
+          
+          {{#each posts}}
+          <div id= {{this.id}}  class='post'><div  class='post-text'>{{this.text}}</div>
+            {{#each this.comments}}
+            <div id={{this.id}} class='comments' ><span id='delete-comment-{{this.id}}' class='delete-comment' >X</span>{{this.text}}</div>
+            
+            {{/each}}
+            <input type='text' id='CommentBar-{{this.id}}'  placeholder='Got something to say?' style= 'margin-left: 10px'>
+            <button class='commentBtn' style='margin-left: 2px'>Comment</button><br><br>
+            <div id='del-{{post.id}}' class='delete' >Delete Post</div><br><br>
+          <br><br></div>
+          {{/each}}
+          
+        </ul>
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+      <script src="render.js"></script> <!-- You'll create this soon --><script src="model.js"></script> <!-- You've got this --><script src="main.js"></script> <!-- You'll create this soon -->
+  </body>
+</html>
