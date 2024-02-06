@@ -1,0 +1,27 @@
+.movie {
+    position: relative;
+    height: inherit;
+    width: 90%;
+
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(186, 186, 186);
+    opacity: 0.85;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+  }
+
+.movie img {
+    width: 100%;
+    height: 350px;
+    display: block;
+    object-fit: cover;
+
+  }
+
+
+.btnPlus{
+  position: absolute;
+  right: 0;
+}

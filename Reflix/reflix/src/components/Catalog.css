@@ -1,0 +1,25 @@
+.movie-list {
+    
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 50%;
+  }
+
+.rent-list {
+    
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 50%;
+  }
+
+.title{
+    display: block;
+    left: 0;
+  }
+
+
+
