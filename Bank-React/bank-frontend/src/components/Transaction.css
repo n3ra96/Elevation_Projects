@@ -1,0 +1,34 @@
+
+.vendor{
+    display: inline-block;
+    background-color: aqua;
+    width: 200px;
+    height: 20px;
+    padding: 10px;
+}
+
+
+
+.white{
+    display: inline-block;
+    background-color: white;
+    width: 200px;
+    height: 20px;
+    padding: 10px;
+}
+
+.green{
+    display: inline-block;
+    background-color: green;
+    width: 200px;
+    height: 20px;
+    padding: 10px;
+}
+
+.red{
+    display: inline-block;
+    background-color: red;
+    width: 200px;
+    height: 20px;
+    padding: 10px;
+}
