@@ -1,0 +1,11 @@
+.transactions{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    margin-top: 10vh;
+    gap: 10px;
+    justify-content: center;
+}
+
+h1{
+    margin-left: 39%;
+}

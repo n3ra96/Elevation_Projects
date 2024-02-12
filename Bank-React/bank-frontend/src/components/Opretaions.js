@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import './Opreations.css'
 
 const Opretaions = (props) => {
     console.log(props)
@@ -70,17 +71,19 @@ const Opretaions = (props) => {
 
   return (
     <div>
-        Insert Transactions<br></br><br></br>
-        <input type="text" value={textAmount} placeholder='Transaction amount' onChange={updateTextAmount} />
-        <br></br><br></br>
-        <input type="text" value={textVendor} placeholder='Transaction vendor' onChange={updateTextVendor} />
-        <br></br><br></br>
-        <input type="text" value={textCategory} placeholder='Transaction category' onChange={updateTextCategory} />
-        <br></br><br></br>
-        <Link to="/">   
-        <button style={{backgroundColor: 'green'}} onClick={() =>  handleClick(true)}>Deposit</button>
-        <button style={{backgroundColor: 'red'}} onClick={() =>  handleClick(false)}>Withdraw</button>
+        <h1>Insert Transactions</h1><br></br><br></br>
+        <div className='operations'>
+            <input type="text" value={textAmount} placeholder='Transaction amount' onChange={updateTextAmount} />
+            <br></br><br></br>
+            <input type="text" value={textVendor} placeholder='Transaction vendor' onChange={updateTextVendor} />
+            <br></br><br></br>
+            <input type="text" value={textCategory} placeholder='Transaction category' onChange={updateTextCategory} />
+            <br></br><br></br>
+            <Link to="/">   
+            <button style={{backgroundColor: 'green'}} onClick={() =>  handleClick(true)}>Deposit</button>
+            <button style={{backgroundColor: 'red'}} onClick={() =>  handleClick(false)}>Withdraw</button>
         </Link>
+        </div>
     </div>
   )
 }

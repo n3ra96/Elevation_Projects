@@ -21,9 +21,9 @@ const Transaction = (props) => {
       }
 
   return (
-    <div key={props.id} >
-        <span className='vendor'>vendor={props.vendor}</span><span className={color}>amount={props.amount}</span><br></br>
-        <span className='category'>category={props.category}</span><span><button onClick={() => handleDelete(props.id) }>Delete</button></span>
+    <div className='transaction' key={props.id} >
+        <span className='vendor'>vendor:{props.vendor}</span><span className={color}>amount:{props.amount}</span><br></br>
+        <span className='category'>category:{props.category}</span><span><button onClick={() => handleDelete(props.id) }>Delete</button></span>
     </div>
   )
 }

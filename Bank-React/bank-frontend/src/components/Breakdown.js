@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState , useEffect } from 'react'
+import './Breakdown.css'
+
 
 const Breakdown = () => {
 
@@ -23,8 +25,8 @@ const Breakdown = () => {
 
   return (
     <div>
-        Breakdown
-        {SumCategory.map((item,index) => <div key={index}>{item._id}={item.total}</div>)}
+        <h1>Breakdown</h1>
+        {SumCategory.map((item,index) => <div className='sum' key={index}>{item._id}={item.total}</div>)}
     </div>
   )
 }

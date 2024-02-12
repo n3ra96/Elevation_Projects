@@ -19,7 +19,7 @@ const Navbar = ({Balance}) => {
     
     
   return (
-    <div>
+    <div className='navbar'>
         
         <span className='title'>
             <Link to="/">Transactions</Link> 
