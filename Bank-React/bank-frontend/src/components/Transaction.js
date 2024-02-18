@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Transaction.css'
 
 const Transaction = (props) => {
+    console.log("inside transaction",props.Light)
+    let transactionClass
+    if(props.Light == 0){
+      transactionClass = 'transaction'
+    }else{
+      transactionClass = 'darktransaction'
+    }
     
     let color = 'white'
     if(props.amount > 0){
@@ -21,7 +28,7 @@ const Transaction = (props) => {
       }
 
   return (
-    <div className='transaction' key={props.id} >
+    <div className={transactionClass} key={props.id} >
         <span className='vendor'>vendor:{props.vendor}</span><span className={color}>amount:{props.amount}</span><br></br>
         <span className='category'>category:{props.category}</span><span><button onClick={() => handleDelete(props.id) }>Delete</button></span>
     </div>
